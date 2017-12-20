@@ -1,0 +1,34 @@
+body {
+  background-color: Gray;
+  color: DimGray;
+
+  font-family: garamond, courier, sans-serif;
+}
+main {
+  max-width: 780px;
+  margin:70px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 25px;
+}
+header {
+  font-size:2.8rem;
+}
+#stem {
+  font-size: 1.5rem;
+
+  margin: 1rem 0;
+}
+.choices {
+  font-size: 1.4rem;
+  margin: .5rem 0;
+  cursor: pointer;
+  display: block;
+}
+.choices:hover {
+  color: black;
+}
+.choice:active {
+  position: relative;
+  top: 2px;
+}
