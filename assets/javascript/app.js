@@ -17,9 +17,12 @@ function newGame() {
 function countdown(seconds) {
   var timerDiv= $('<div>');
   $('.announcements').append(timerDiv);
-  setInterval(function() {
+  intervalId=setInterval(function() {
     timerDiv.text(Math.floor(seconds/60)+'m'+seconds%60+'s');
-    seconds--;
+    if (--seconds < 110) {
+      clearInterval(intervalId);
+      gameOver();
+    }
   }, 1000)
 }
 
@@ -55,6 +58,5 @@ function nextQuestion() {
 
 function gameOver() {
   var scoreInPercent = score / questions.length * 100 + '%';
-  console.log(scoreInPercent);
   $('#question').html('score: ' + scoreInPercent);
 }
