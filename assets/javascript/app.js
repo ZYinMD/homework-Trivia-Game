@@ -1,4 +1,5 @@
 var currentQuestionNumber;
+var score;
 
 function initialize() {
   $('#question').on('click', '[id]', isCorrect);
@@ -9,6 +10,7 @@ newGame();
 
 function newGame() {
   currentQuestionNumber = 1;
+  score=0;
   populateQuestion();
 }
 
@@ -22,17 +24,23 @@ function populateQuestion() {
 }
 
 function isCorrect() {
-  if ($(this).attr('id') == currentQuestion.correctChoice) {
-    //your answer is correct!
-    console.log('Correct!');
+  var key=currentQuestion.correctChoice;
+  var picked=$(this).attr('id');
+  $('#'+key).append('<span style="color: LightGreen"> ✔</span>');
+
+
+  // $('#'+currentQuestion.correctChoice).append('<span style="color: LightGreen"> ✔</span>');
+  if (picked == key) {
+    score++;
   } else {
     //your answer is incorrect!
     console.log('Wrong!')
   }
-  nextQuestion();
+  setTimeout(nextQuestion, 1500);
 }
 
 function nextQuestion() {
+
   if (currentQuestionNumber == questions.length - 1) {
     gameOver();
   } else {

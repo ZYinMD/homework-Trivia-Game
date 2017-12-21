@@ -1,6 +1,5 @@
 body {
   background-color: Gray;
-  color: DimGray;
 
   font-family: garamond, courier, sans-serif;
 }
@@ -22,13 +21,14 @@ header {
 .choices {
   font-size: 1.4rem;
   margin: .5rem 0;
+  line-height: 110%;
   cursor: pointer;
   display: block;
 }
 .choices:hover {
-  color: black;
+  color: grey;
 }
-.choice:active {
+.choices:active {
   position: relative;
   top: 2px;
 }
