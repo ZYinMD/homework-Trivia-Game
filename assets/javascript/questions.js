@@ -1,5 +1,4 @@
 questions = [
-  null, //skip the [0]
   {
     stem: 'Which of the following keyboard shortcuts behaves differently in Sublime/Atom than in browsers?',
     b: 'Ctrl-PageUp / Ctrl-PageDown',

@@ -4,14 +4,23 @@ var score;
 function initialize() {
   $('#question').on('click', '[id]', isCorrect);
 }
-
 initialize();
 newGame();
 
 function newGame() {
-  currentQuestionNumber = 1;
-  score=0;
+  currentQuestionNumber = 0;
+  score = 0;
+  countdown(120);
   populateQuestion();
+}
+
+function countdown(seconds) {
+  var timerDiv= $('<div>');
+  $('.announcements').append(timerDiv);
+  setInterval(function() {
+    timerDiv.text(Math.floor(seconds/60)+'m'+seconds%60+'s');
+    seconds--;
+  }, 1000)
 }
 
 function populateQuestion() {
@@ -24,23 +33,18 @@ function populateQuestion() {
 }
 
 function isCorrect() {
-  var key=currentQuestion.correctChoice;
-  var picked=$(this).attr('id');
-  $('#'+key).append('<span style="color: LightGreen"> ✔</span>');
-
-
-  // $('#'+currentQuestion.correctChoice).append('<span style="color: LightGreen"> ✔</span>');
+  var key = currentQuestion.correctChoice;
+  var picked = $(this).attr('id');
+  $('#' + key).append('<span style="color: LightGreen"> ✔</span>'); //mark the correct answer no matter what
   if (picked == key) {
     score++;
   } else {
-    //your answer is incorrect!
-    console.log('Wrong!')
+    $('#' + picked).append('<span style="color: red"> ✖</span>');
   }
-  setTimeout(nextQuestion, 1500);
+  setTimeout(nextQuestion, 1250);
 }
 
 function nextQuestion() {
-
   if (currentQuestionNumber == questions.length - 1) {
     gameOver();
   } else {
@@ -50,6 +54,7 @@ function nextQuestion() {
 }
 
 function gameOver() {
-  /////
-  console.log('Game Over!')
+  var scoreInPercent = score / questions.length * 100 + '%';
+  console.log(scoreInPercent);
+  $('#question').html('score: ' + scoreInPercent);
 }
