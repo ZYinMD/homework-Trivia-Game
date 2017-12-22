@@ -17,14 +17,14 @@ questions = [
   },
   {
     stem: 'Which of the following descriptions isn\'t accurate?',
-    a: 'Win-2: jump to the 2nd app on your taskbar',
+    a: 'Win-2: switch to the 2nd app on your taskbar',
     b: 'Win-Left: make your current window fill the left half screen',
     c: 'Win-D: show desktop',
-    d: 'Win-Tab: switch to the last activated window',
+    d: 'Win-Tab: switch to the last activated desktop',
     correctChoice:'d'
   },
   {
-    stem: 'Which of the following hotkeys behaves differently in Chrome than in Windows Explorer?',
+    stem: 'The following keyboard shortcuts used to work the same way in Chrome and in Windows File Explorers, until Chrome removed which one in last year?',
     a: 'F3',
     b: 'Alt-Left',
     c: 'BackSpace',
