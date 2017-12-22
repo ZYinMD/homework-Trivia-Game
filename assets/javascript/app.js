@@ -16,7 +16,7 @@ function newGame(seconds) {
   currentQuestionNumber = 0;
   score = 0;
   $('.announcements > *').toggleClass('hidden', true);
-  $('#start-button').toggleClass('hidden', true);
+  $('.row__center-align > *').toggleClass('hidden', true);
   countdown(seconds);
   populateQuestion();
 }
@@ -68,4 +68,31 @@ function gameOver() {
   $('#question > *').empty()
   $('#score').toggleClass('hidden', false).html('Score: ' + score / questions.length * 100 + '%');
   $('#play-again').toggleClass('hidden', false);
+  printComment();
+}
+
+function printComment() {
+  var comment
+  switch (score) {
+    case 0:
+      comment = "Keep using your mouse, it's perfect for you. :)";
+      break;
+    case 1:
+      comment = "You suck.";
+      break;
+    case 2:
+      comment = "Hey, every single key combination in every single question is productivity gold, you'll benefit a lot if you go back and check them out one by one.";
+      break;
+    case 3:
+      comment = "Not bad! You're pretty into keyboard shortcuts, aren't you?";
+      break;
+    case 4:
+      comment = "Only people like you deserve to be a programmer.";
+      break;
+    case 5:
+      comment = "Wow, you need to talk to Zhi about AutoHotkey, and exchange ideas!";
+      break;
+  }
+  console.log(comment)
+  $('#notification').toggleClass('hidden', false).text(comment);
 }

@@ -26,7 +26,7 @@ hr {
 .row__center-align {
   text-align: center;
 }
-#start-button {
+.row__center-align > * {
   display: inline-block;
   font-size: 2rem;
   margin-top: 1.6rem;
