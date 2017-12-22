@@ -1,29 +1,36 @@
 var currentQuestionNumber;
 var score;
+initialize();
 
 function initialize() {
   $('#question').on('click', '[id]', isCorrect);
+  $('#start-button').on('click', function() {
+    newGame(120);
+  });
+  $('#play-again').on('click', function() {
+    newGame(10);
+  });
 }
-initialize();
-newGame();
 
-function newGame() {
+function newGame(seconds) {
   currentQuestionNumber = 0;
   score = 0;
-  countdown(120);
+  $('.announcements > *').toggleClass('hidden', true);
+  $('#start-button').toggleClass('hidden', true);
+  countdown(seconds);
   populateQuestion();
 }
 
 function countdown(seconds) {
-  var timerDiv= $('<div>');
-  $('.announcements').append(timerDiv);
-  intervalId=setInterval(function() {
-    timerDiv.text(Math.floor(seconds/60)+'m'+seconds%60+'s');
-    if (--seconds < 110) {
-      clearInterval(intervalId);
+  var timerDiv = $('#timer');
+  timerDiv.text('Time Left: ' + Math.floor(seconds / 60) + 'm' + seconds % 60 + 's'); //First do it once manually, because setInverval only run the function immediately
+  intervalId = setInterval(function() {
+    if (--seconds == 0) {
       gameOver();
     }
+    timerDiv.text('Time Left: ' + Math.floor(seconds / 60) + 'm' + seconds % 60 + 's');
   }, 1000)
+  timerDiv.toggleClass('hidden', false);
 }
 
 function populateQuestion() {
@@ -57,6 +64,8 @@ function nextQuestion() {
 }
 
 function gameOver() {
-  var scoreInPercent = score / questions.length * 100 + '%';
-  $('#question').html('score: ' + scoreInPercent);
+  clearInterval(intervalId);
+  $('#question > *').empty()
+  $('#score').toggleClass('hidden', false).html('Score: ' + score / questions.length * 100 + '%');
+  $('#play-again').toggleClass('hidden', false);
 }

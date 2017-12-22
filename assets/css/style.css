@@ -1,38 +1,79 @@
+html {
+  font-size: 110%;
+
+}
 body {
   background-color: Gray;
-
   font-family: garamond, courier, sans-serif;
 }
+
 main {
-  max-width: 780px;
-  margin:70px auto;
-  padding: 30px;
+  max-width: 640px;
+  margin: 70px auto;
+  padding: 35px 40px 28px;
   background-color: white;
   border-radius: 25px;
 }
+
 header {
-  font-size:2.8rem;
+  font-size: 2.8rem;
+}
+
+hr {
+  margin: 1rem 0 1.5rem
+}
+
+.row__center-align {
+  text-align: center;
+}
+#start-button {
+  display: inline-block;
+  font-size: 2rem;
+  margin-top: 1.6rem;
 }
 #stem {
   font-size: 1.5rem;
 
   margin: 1rem 0;
 }
+
 .choices {
   font-size: 1.4rem;
   margin: .5rem 0;
   line-height: 110%;
-  cursor: pointer;
   display: block;
 }
-.choices:hover {
+
+a {
+  cursor: pointer;
+}
+a:hover {
   color: grey;
 }
-.choices:active {
+
+a:active {
   position: relative;
   top: 2px;
 }
 
 .announcements {
-  margin: 2rem 2rem 1rem 0;
+  display: flex;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+
+#timer {
+  width: 33%;
+}
+
+#score {
+  width: 25%;
+}
+
+/* #play-again {
+  text-decoration: underline;
+} */
+
+.hidden {
+  display: none !important;
 }
