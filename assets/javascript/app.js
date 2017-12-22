@@ -1,5 +1,4 @@
-var currentQuestionNumber;
-var score;
+var currentQuestionNumber, score, intervalId, timeoutId
 initialize();
 
 function initialize() {
@@ -24,7 +23,7 @@ function countdown(seconds) {
   var timerDiv = $('#timer');
   timerDiv.text('Time Left: ' + Math.floor(seconds / 60) + 'm' + seconds % 60 + 's'); //First do it once manually, because setInverval only run the function immediately
   intervalId = setInterval(function() {
-    if (--seconds == 0) {
+    if (--seconds <= 0) {
       gameOver();
     }
     timerDiv.text('Time Left: ' + Math.floor(seconds / 60) + 'm' + seconds % 60 + 's');
@@ -96,6 +95,5 @@ function printComment() {
       comment = "Wow, you need to talk to Zhi about AutoHotkey, and exchange ideas!";
       break;
   }
-  console.log(comment)
   $('#comment').toggleClass('hidden', false).text(comment);
 }
