@@ -3,7 +3,6 @@ var score;
 initialize();
 
 function initialize() {
-  $('#question').on('click', '[id]', isCorrect);
   $('#start-button').on('click', function() {
     newGame(120);
   });
@@ -40,18 +39,20 @@ function populateQuestion() {
   $('#b').text('B. ' + currentQuestion.b);
   $('#c').text('C. ' + currentQuestion.c);
   $('#d').text('D. ' + currentQuestion.d);
+  $('#question').on('click', '.choices', isCorrect);
 }
 
 function isCorrect() {
+  $('#question').off(); //remove click listeners as soon as user clicked a choice, prevent multi clicking bug
   var key = currentQuestion.correctChoice;
   var picked = $(this).attr('id');
-  $('#' + key).append('<span style="color: LightGreen"> ✔</span>'); //mark the correct answer no matter what
+  $('#' + key).append('<span style="color: SpringGreen"> ✔</span>'); //mark the correct answer no matter what
   if (picked == key) {
     score++;
   } else {
     $('#' + picked).append('<span style="color: red"> ✖</span>');
   }
-  setTimeout(nextQuestion, 1250);
+  timeoutId = setTimeout(nextQuestion, 1250);
 }
 
 function nextQuestion() {
@@ -65,9 +66,12 @@ function nextQuestion() {
 
 function gameOver() {
   clearInterval(intervalId);
+  clearTimeout(timeoutId); //in case it's in the middle of timeout (correct answer showing time)
   $('#question > *').empty()
   $('#score').toggleClass('hidden', false).html('Score: ' + score / questions.length * 100 + '%');
   $('#play-again').toggleClass('hidden', false);
+  $('#question').off(); //remove click listeners in case it's a auto submit, prevent multiple listeners bug
+
   printComment();
 }
 
