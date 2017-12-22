@@ -1,4 +1,4 @@
-var currentQuestionNumber, score, intervalId, timeoutId
+var currentQuestionNumber, score, intervalId, timeoutId;
 initialize();
 
 function initialize() {
@@ -45,13 +45,13 @@ function isCorrect() {
   $('#question').off(); //remove click listeners as soon as user clicked a choice, prevent multi clicking bug
   var key = currentQuestion.correctChoice;
   var picked = $(this).attr('id');
-  $('#' + key).append('<span style="color: SpringGreen"> ✔</span>'); //mark the correct answer no matter what
+  $('#' + key).append('<span style="color: SpringGreen"> ✔</span>'); //first mark the correct answer no matter what
   if (picked == key) {
     score++;
   } else {
     $('#' + picked).append('<span style="color: red"> ✖</span>');
   }
-  timeoutId = setTimeout(nextQuestion, 1200);
+  timeoutId = setTimeout(nextQuestion, 1200); //show the correct answer for a second before moving to next
 }
 
 function nextQuestion() {
@@ -64,17 +64,17 @@ function nextQuestion() {
 }
 
 function gameOver() {
-  clearInterval(intervalId);
-  clearTimeout(timeoutId); //in case it's in the middle of timeout (correct answer showing time)
+  clearInterval(intervalId); //stop the timer
+  clearTimeout(timeoutId); //in case it's in the middle correct answer showing time between questions
   $('#question > *').empty()
   $('#score').toggleClass('hidden', false).html('Score: ' + score / questions.length * 100 + '%');
   $('#play-again').toggleClass('hidden', false);
   $('#question').off(); //remove click listeners in case it's a auto submit, prevent multiple listeners bug
-  printComment();
+  displayComment();
 }
 
-function printComment() {
-  var comment
+function displayComment() {
+  var comment;
   switch (score) {
     case 0:
       comment = "Keep using your mouse, it's perfect for you. :)";

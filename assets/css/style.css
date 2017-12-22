@@ -4,7 +4,7 @@ html {
 
 body {
   background-color: Gray;
-  font-family: Garamond,'EB Garamond', serif;
+  font-family: Garamond, 'EB Garamond', serif;
   font-weight: 100;
 }
 
@@ -36,7 +36,6 @@ hr {
 
 #stem {
   font-size: 1.5rem;
-
   margin: 1rem 0;
 }
 
