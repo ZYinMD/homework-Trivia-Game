@@ -1,10 +1,11 @@
 html {
   font-size: 110%;
-
 }
+
 body {
   background-color: Gray;
-  font-family: garamond, courier, sans-serif;
+  font-family: Garamond,'EB Garamond', serif;
+  font-weight: 100;
 }
 
 main {
@@ -26,11 +27,13 @@ hr {
 .row__center-align {
   text-align: center;
 }
-.row__center-align > * {
+
+.row__center-align>* {
   display: inline-block;
   font-size: 2rem;
   margin-top: 1.6rem;
 }
+
 #stem {
   font-size: 1.5rem;
 
@@ -47,6 +50,7 @@ hr {
 a {
   cursor: pointer;
 }
+
 a:hover {
   color: grey;
 }

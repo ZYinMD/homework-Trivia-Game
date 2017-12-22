@@ -24,7 +24,7 @@ questions = [
     correctChoice:'d'
   },
   {
-    stem: 'Which of the following hotkeys behaves differently in browsers than in Windows Explorer?',
+    stem: 'Which of the following hotkeys behaves differently in Chrome than in Windows Explorer?',
     a: 'F3',
     b: 'Alt-Left',
     c: 'BackSpace',

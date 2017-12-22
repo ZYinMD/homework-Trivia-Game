@@ -97,5 +97,5 @@ function printComment() {
       break;
   }
   console.log(comment)
-  $('#notification').toggleClass('hidden', false).text(comment);
+  $('#comment').toggleClass('hidden', false).text(comment);
 }
