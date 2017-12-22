@@ -71,7 +71,6 @@ function gameOver() {
   $('#score').toggleClass('hidden', false).html('Score: ' + score / questions.length * 100 + '%');
   $('#play-again').toggleClass('hidden', false);
   $('#question').off(); //remove click listeners in case it's a auto submit, prevent multiple listeners bug
-
   printComment();
 }
 
