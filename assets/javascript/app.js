@@ -52,7 +52,7 @@ function isCorrect() {
   } else {
     $('#' + picked).append('<span style="color: red"> ✖</span>');
   }
-  timeoutId = setTimeout(nextQuestion, 1250);
+  timeoutId = setTimeout(nextQuestion, 1200);
 }
 
 function nextQuestion() {
