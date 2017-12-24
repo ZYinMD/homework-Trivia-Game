@@ -8,7 +8,7 @@ function initialize() {
   $('#play-again').on('click', function() {
     newGame(10);
   });
-  //useless fancy visual effect: click the header to press down the whole thing, can achieve with css
+  //useless fancy visual effect: click the header to press down the whole thing, can't achieve with css
   $('header').on('click', function() {
     $('main').toggleClass('pressed', true);
     setTimeout(function() {
