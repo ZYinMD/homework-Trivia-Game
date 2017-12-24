@@ -1,5 +1,12 @@
 var currentQuestionNumber, score, intervalId, timeoutId;
 initialize();
+//useless fancy visual effect: click the header to press down the whole thing, can achieve with css
+$('header').on('click', function() {
+  $('main').toggleClass('pressed', true);
+  setTimeout(function() {
+    $('main').toggleClass('pressed', false);
+  }, 140)
+})
 
 function initialize() {
   $('#start-button').on('click', function() {
