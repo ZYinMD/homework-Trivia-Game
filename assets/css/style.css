@@ -55,13 +55,16 @@ hr {
   display: block;
 }
 
+header,
 a {
   cursor: pointer;
 }
 
+header:hover,
 a:hover {
   color: grey;
 }
+
 
 a:active {
   position: relative;
