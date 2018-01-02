@@ -22,7 +22,7 @@ main.pressed {
   /*move position with shadows unmoved to create press down effect*/
   position: relative;
   top: 4px;
-  box-shadow: 0 4px 2px rgba(255, 255, 255, 0.6), 0 6px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 2px rgba(255, 255, 255, 0.6), 0 6jpx 0 rgba(0, 0, 0, 0.35);
 }
 
 header {

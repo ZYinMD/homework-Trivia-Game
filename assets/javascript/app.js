@@ -13,8 +13,8 @@ function initialize() {
     $('main').toggleClass('pressed', true);
     setTimeout(function() {
       $('main').toggleClass('pressed', false);
-    }, 140)
-  })
+    }, 140);
+  });
 }
 
 function newGame(seconds) {
@@ -34,7 +34,7 @@ function countdown(seconds) {
       gameOver();
     }
     timerDiv.text('Time Left: ' + Math.floor(seconds / 60) + 'm' + seconds % 60 + 's');
-  }, 1000)
+  }, 1000);
   timerDiv.toggleClass('hidden', false);
 }
 
@@ -73,7 +73,7 @@ function nextQuestion() {
 function gameOver() {
   clearInterval(intervalId); //stop the timer
   clearTimeout(timeoutId); //in case it's in the middle correct answer showing time between questions
-  $('#question > *').empty()
+  $('#question > *').empty();
   $('#score').toggleClass('hidden', false).html('Score: ' + score / questions.length * 100 + '%');
   $('#play-again').toggleClass('hidden', false);
   $('#question').off(); //remove click listeners in case it's a auto submit, prevent multiple listeners bug
